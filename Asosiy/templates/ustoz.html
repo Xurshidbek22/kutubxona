@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ustoz</title>
+</head>
+<body>
+
+<form method="get" action="/ustoz/">
+        <input type="text" name="u_soz" placeholder="Sozni kiriting...">
+        <button type="submit" style="font-weight:bold;">Qidirish</button>
+</form>
+<br>
+<h2 style="color:red;font-size:30px;display:inline;">Ustozlar royhati</h2>
+
+{% for ustoz in ustozlar%}
+<h2 style="color:green;"><span style="color:black;">{{ustoz.id}}.</span>{{ustoz}}</h2>
+<a  href="/ustozni_ochir/{{ustoz.id}}/">
+    <button style="color:red;font-weight:bold;">Delete</button>
+</a>
+<a  href="/ustoz_edit/{{ustoz.id}}/">
+    <button style="color:blue;font-weight:bold;">Edit</button>
+</a>
+{% endfor %}
+<br>
+<br>
+<form action="/ustoz/" method="post">{% csrf_token %}
+    {{ forma.as_p }}
+    <button style="font-weight:bold;" type="submit">Qo'shish</button>
+</form>
+<br>
+
+</body>
+</html>

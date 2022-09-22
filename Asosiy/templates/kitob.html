@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="get" action="/kitoblar/">
+        <input type="text" name="k_sozi" placeholder="Sozni kiriting...">
+        <button type="submit" style="font-weight:bold;">Qidirish</button>
+</form>
+<br>
+
+<h2 align="center" style="display:inline;">Kitoblar royhati:</h2>
+{% for kitob in kitoblar%}
+<h3 >{{kitob.id}}.<span style="color:blue;">{{kitob}}</span></h3>
+<a href="/kitobni_tasdiqlash/{{kitob.id}}/"><button style="font-weight:bold;">O'chirish</button></a>
+<!--<a href="/kitobni_qosh/{{kitob.id}}/"><button>Qo'shish</button></a>-->
+{% endfor%}
+
+<br>
+<br>
+<form method="post" action="/kitob/">{% csrf_token %}
+    {{forma.as_p}}
+    <button type="submit">Qo'shish</button>
+</form>
+<br>
+<br>
+</body>
+</html>

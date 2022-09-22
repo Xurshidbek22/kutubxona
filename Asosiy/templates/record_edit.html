@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record</title>
+</head>
+<body>
+<br>
+<h1 style="color:red;">Record malumotlarini o'zgartiring</h1><hr>
+<br>
+<form method="post" action="/record_edit/{{record.id}}/">{% csrf_token %}
+    <label for="ol" style="font-size:25px;font-weight:bold;">Olingan sana</label>
+    <input id="ol" type="date" name="olingan_s" value="{{record.olingan_sana}}">
+    <label for="qaytar" style="font-size:25px;font-weight:bold;">Qaytardi</label>
+    {% if record.qaytardi %}
+    <input id="qaytar" type="checkbox" name="qaytar" checked>
+    {% else %}
+    <input type="checkbox" name="qaytar">
+    {% endif %}
+    <label for="qaytar_sana" style="font-size:25px;font-weight:bold;">Qaytargan sana</label>
+    <input id="qaytar_sana" type="date" name="qaytargan_s" value="{{record.qaytargan_sana}}">
+    <button type="submit" style="color:blue;">Edit</button>
+</form>
+</body>
+</html>

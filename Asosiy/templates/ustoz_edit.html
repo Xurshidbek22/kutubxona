@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<h1 style="color:red;">Ustoz malumotlarini o'zgartiring</h1><hr>
+<br>
+<form method="post" action="/ustoz_edit/{{ustoz.id}}/">{% csrf_token %}
+    <label style="color:red;font-weight:bold;font-size:25px;">Ism:</label>
+    <input type="text" name="ismi" value="{{ustoz.ism}}">
+    <label style="color:red;font-weight:bold;font-size:25px;">Yoshi:</label>
+    <input type="number" name="yoshi" value="{{ustoz.yosh}}">
+    <label style="color:red;font-weight:bold;font-size:25px;">Darajasi:</label>
+    <input type="text" name="darajasi" value="{{ustoz.daraja}}">
+    <select name="fani">
+        {% for fan in fanlar %}
+        <option value="{{fan.id}}">{{fan.nom}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" style="color:blue;">Edit</button>
+</form>
+</body>
+</html>

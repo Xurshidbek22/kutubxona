@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yonalish</title>
+</head>
+<body>
+<h2 style="color:red;font-size:30px;display:inline;">Yonalishlar royhati</h2>
+{% for yonalish in yonalishlar%}
+<h2 style="color:green;"><span style="color:black;">{{yonalish.id}}.</span>{{yonalish}}:</h2>
+<a  href="/yonalishni_ochir/{{yonalish.id}}/">
+    <button style="color:red;font-weight:bold;">Delete</button>
+</a>
+<a  href="/yonalish_edit/{{yonalish.id}}/">
+    <button style="color:blue;font-weight:bold;">Edit</button>
+</a>
+{% endfor %}
+<br>
+<br>
+<form action="/yonalish/" method="post">{% csrf_token %}
+    {{ forma.as_p }}
+    <button style="font-weight:bold;" type="submit">Qo'shish</button>
+</form>
+<br>
+
+</body>
+</html>

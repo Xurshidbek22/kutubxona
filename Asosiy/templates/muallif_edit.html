@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br>
+<h1 style="color:red;">Muallif malumotlarini o'zgartiring</h1><hr>
+<br>
+<form method="post" action="/muallif_edit/{{muallif.id}}/">{% csrf_token %}
+    <label for="ism" style="font-size:25px;font-weight:bold;">Ism:</label>
+    <input id="ism" type="text" name="ismi" value="{{muallif.ism}}">
+    <label for="tir" style="font-size:25px;font-weight:bold;">Tirik</label>
+    {% if muallif.tirik %}
+    <input id="tir" type="checkbox" name="Tirik" checked>
+    {% else %}
+    <input type="checkbox" name="Tirik">
+    {% endif %}
+    <label for="kit" style="font-size:25px;font-weight:bold;">Kitob soni</label>
+    <input id="kit" type="number" name="k_soni" value="{{muallif.kitob_soni}}">
+    <label for="tug" style="font-size:25px;font-weight:bold;">Tugilgan yil</label>
+    <input id="tug" type="date" name="tugilgan" value="{{muallif.tugilgan_yil}}">
+    <button type="submit" style="color:blue;font-weight:bold;">Edit</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<br>
+<h1 style="color:red;">Talabani malumotlarini o'zgartiring</h1><hr>
+<br>
+<form method="post" action="/student_edit/{{student.id}}/">{% csrf_token %}
+    <label style="font-size:25px;font-weight:bold;">Ism:</label>
+        <input type="text" name="ismi" value="{{student.ism}}">
+        <label style="font-size:25px;font-weight:bold;">Bitiruvchi:</label>
+        {% if student.bitiruvchi %}
+        <input type="checkbox" name="bitiradi" checked>
+        {% else %}
+         <input type="checkbox" name="bitiradi">
+        {% endif %}
+        <label style="font-size:25px;font-weight:bold;">Kitob soni:</label>
+        <input type="number" name="k_soni" value="{{student.kitob_soni}}">
+        <button type="submit" style="color:blue;font-weight:bold;">Edit</button>
+</form>
+
+<br>
+</body>
+</html>

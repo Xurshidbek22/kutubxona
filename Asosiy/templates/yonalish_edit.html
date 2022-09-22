@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yonalish</title>
+</head>
+<body>
+<h1 style="color:red;">Yo'nalish malumotlarini o'zgartiring</h1><hr>
+<br>
+<form method="post" action="/yonalish_edit/{{yonalish.id}}/">{% csrf_token %}
+    <label style="color:red;font-weight:bold;font-size:25px;">Nom:</label>
+    <input type="text" name="nomi" value="{{yonalish.nom}}">
+    {% if yonalish.aktiv %}
+        <input type="checkbox" name="akt" checked>
+        {% else %}
+         <input type="checkbox" name="akt">
+        {% endif %}
+    <button type="submit" style="color:blue;">Edit</button>
+</form>
+</body>
+</html>
