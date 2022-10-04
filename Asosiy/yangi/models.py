@@ -1,20 +1,5 @@
 from django.db import models
 
-# class Nashiryot(models.Model):
-#     nom = models.CharField(max_length=30)
-#     manzil = models.CharField(max_length=50)
-#
-# class Kitob(models.Model):
-#     nom = models.CharField(max_length=30)
-#     narx = models.IntegerField()
-#     kelgan_sana = models.DateField()
-#     nashiryoti = models.PositiveSmallIntegerField()
-#
-# class Sotuvchi(models.Model):
-#     ism = models.CharField(max_length=50)
-#     tel = models.PositiveSmallIntegerField()
-#     sotuv = models.ForeignKey(Kitob,on_delete=models.CASCADE)
-
 
 class Student(models.Model):
     ism = models.CharField(max_length=30)

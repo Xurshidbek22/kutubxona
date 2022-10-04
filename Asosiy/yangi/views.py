@@ -1,7 +1,30 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from .models import *
 from .forms import StudentForm,KitobForm,MuallifForm,RecordForm,FanForm,YonalishForm,UstozForm
+
+# def student(request):
+#     if request.user.is_authenticated:
+#         t = {
+#             'ismlar':Student.objects.all()
+#         }
+#         return render(request, 'student.html', t)
+#     else:
+#         return redirect('/')
+
+def loginView(request):
+    if request.method == 'POST':
+        user = authenticate(username=request.POST.get('l'),password=request.POST.get('p'))
+        if user is None:
+            return redirect('/student/')
+        login(request, user)
+        return redirect('/')
+    return render(request, 'login.html')
+
+def logoutView(request):
+    logout(request)
+    return redirect('/login/')
 
 def about(request):
     return render(request, 'about.html')
