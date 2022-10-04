@@ -13,6 +13,9 @@ from .forms import StudentForm,KitobForm,MuallifForm,RecordForm,FanForm,Yonalish
 #     else:
 #         return redirect('/')
 
+
+
+
 def loginView(request):
     if request.method == 'POST':
         user = authenticate(username=request.POST.get('l'),password=request.POST.get('p'))
