@@ -7,6 +7,8 @@ class Student(models.Model):
     jins = models.CharField(max_length=10)
     bitiruvchi = models.BooleanField(default=False)
     kitob_soni = models.PositiveSmallIntegerField(default=0)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
 
     def __str__(self):
         return self.ism
@@ -66,13 +68,8 @@ class Ustoz(models.Model):
     yosh = models.PositiveSmallIntegerField()
     daraja = models.CharField(max_length=30,choices=D)
     fan = models.ForeignKey(Fan,on_delete=models.CASCADE)
-    # user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
     def __str__(self):
         return self.ism
 
-class Home(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-
-    def __str__(self):return self.user
