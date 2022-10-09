@@ -53,6 +53,7 @@ class UstozAdmin(admin.ModelAdmin):
     list_filter = ("jins", "daraja")
 
 
+admin.site.register(Home)
 # admin.site.register(Muallif)
 # admin.site.register(Kitob)
 # admin.site.register(Record)

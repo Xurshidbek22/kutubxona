@@ -20,7 +20,7 @@ def loginView(request):
     if request.method == 'POST':
         user = authenticate(username=request.POST.get('l'),password=request.POST.get('p'))
         if user is None:
-            return redirect('/student/')
+            return redirect('/ustoz/')
         login(request, user)
         return redirect('/')
     return render(request, 'login.html')
@@ -28,6 +28,13 @@ def loginView(request):
 def logoutView(request):
     logout(request)
     return redirect('/login/')
+
+def registerView(request):
+    if request.method == "POST":
+        user = authenticate(username=request.POST.get('l'), password=request.POST.get('p'))
+        login(request, user)
+        return redirect('/login/')
+    return render(request, 'register.html')
 
 def about(request):
     return render(request, 'about.html')
